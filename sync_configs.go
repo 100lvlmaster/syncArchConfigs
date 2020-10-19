@@ -3,10 +3,9 @@ package main
 import (
 	"fmt"
 	"log"
-	"os/exec"
 	"math/rand"
+	"os/exec"
 )
-
 
 //CopyDir will copy files to this dir
 func CopyDir(src, dst string) error {
@@ -20,25 +19,25 @@ func pushToGit() {
 	val.Run()
 	nol := exec.Command("git", "add", ".")
 	nol.Run()
-	commit := exec.Command("git","commit","-m",fmt.Sprintf("%d",rand.Intn(100)))
+	commit := exec.Command("git", "commit", "-m", fmt.Sprintf("%d", rand.Intn(100)))
 	commit.Run()
-	all := exec.Command("git", "push","-u", "origin")
+	all := exec.Command("git", "push", "-u", "origin")
 	all.Run()
 
 }
 func main() {
-	var userName string  = "navin"
-	fileNames := []string{ "wallpapers", ".bashrc", ".zshrc"}
-	var srcdir = "/home/"+userName+"/"
+	var userName string = "navin"
+	fileNames := []string{"wallpapers", ".bashrc", ".zshrc"}
+	var srcdir = "/home/" + userName + "/"
 	var destdir = "./"
 	for i := 0; i < len(fileNames); i++ {
 		CopyDir(srcdir+fileNames[i], destdir)
 
 	}
-	var confiLocation = srcdir+".config/"
-	configFiles := []string{"alacritty","i3"}
-	for j:=0 ; j < len(configFiles); j++ {
-		CopyDir(confiLocation+configFiles[j],"./.config/")
+	var confiLocation = srcdir + ".config/"
+	configFiles := []string{"alacritty", "i3"}
+	for j := 0; j < len(configFiles); j++ {
+		CopyDir(confiLocation+configFiles[j], "./.config/")
 
 	}
 
