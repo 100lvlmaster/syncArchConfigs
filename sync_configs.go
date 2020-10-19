@@ -35,7 +35,7 @@ func main() {
 
 	}
 	var confiLocation = srcdir + ".config/"
-	configFiles := []string{"alacritty", "i3"}
+	configFiles := []string{"alacritty", "i3", "dunst"}
 	for j := 0; j < len(configFiles); j++ {
 		CopyDir(confiLocation+configFiles[j], "./.config/")
 
