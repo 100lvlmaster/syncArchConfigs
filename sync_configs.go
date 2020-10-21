@@ -21,8 +21,8 @@ func pushToGit() {
 	nol.Run()
 	commit := exec.Command("git", "commit", "-m", fmt.Sprintf("%d", rand.Intn(100000)))
 	commit.Run()
-	all := exec.Command("git", "push", "-f", "origin")
-	fmt.Println(all.Run())
+	all := exec.Command("git", "push", "-f", "origin", "master")
+	all.Run()
 
 }
 func main() {
