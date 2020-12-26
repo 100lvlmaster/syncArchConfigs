@@ -412,6 +412,8 @@ exec --no-startup-id dex $HOME/.config/autostart/arcolinux-welcome-app.desktop
 # Autotiling
 exec_always --no-startup-id autotiling
 
+#Albert
+exec --no-startup-id albert
 #browser
 #exec --no-startup-id vivaldi-stable
 for_window [class="Vivaldi-stable"] focus
@@ -430,10 +432,14 @@ for_window [class="Vivaldi-stable"] focus
 #`exec --no-startup-id spotify
 for_window [class="Spotify"] focus
 
-#gnome-keyring
+#polkit
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+
+#Gnome-keyring
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 
-
+#Deadd-notification-center
+exec --no-startup-id deadd-notification-center
 
 # TRAY APPLICATIONS
 
@@ -807,8 +813,8 @@ popup_during_fullscreen smart
 
 
 for_window [class="^.*"] border pixel 2
-gaps inner 5
-gaps outer 5
+gaps inner 3
+gaps outer 3
 #smart_gaps on
 #smart_borders on
 
